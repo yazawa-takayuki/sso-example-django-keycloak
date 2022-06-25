@@ -31,7 +31,6 @@ def login_op(request):
 
     # keep next url because it gets lost when token response occurs
     if 'next' in request.GET:
-        assert 'url_next_to_login' not in request.session
         request.session['url_next_to_login'] = request.GET['next']
 
     # authentication request
