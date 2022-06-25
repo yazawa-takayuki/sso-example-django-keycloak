@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 
+from django.urls import reverse_lazy
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -122,3 +124,20 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = reverse_lazy('oidc:login_op')
+# dedault page shown after login
+LOGIN_REDIRECT_URL = reverse_lazy('app1:index')
+
+# get these values from keycloak
+OIDC_CLIENT_ID = 'app1'
+OIDC_CLIENT_SECRET = ''
+TOKEN_ENDPOINT = 'http://localhost:8080/realms/test/protocol/openid-connect/token'
+AUTHORIZATION_ENDPOINT = 'http://localhost:8080/realms/test/protocol/openid-connect/auth'
+JWKS_URI = 'http://localhost:8080/realms/test/protocol/openid-connect/certs'
+
+AUTHENTICATION_BACKENDS = [
+    'oidc.backends.OidcBackend',
+    # keep default to use admin site
+    'django.contrib.auth.backends.ModelBackend'
+]
