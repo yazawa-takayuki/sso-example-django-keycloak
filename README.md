@@ -37,7 +37,7 @@ docker run -p 8080:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin
 
 - Client ID: app2
 - Access Type: confidential
-- Valid Redirect URIs: http://localhost:8001/oidc/login/
+- Valid Redirect URIs: http://localhost:8002/oidc/login/
 - Proof Key for Code Exchange Code Challenge Method: S256
 
 7. Note 'Secret' of app1 and app2
