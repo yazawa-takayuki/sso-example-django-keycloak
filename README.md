@@ -1,5 +1,26 @@
 # sso-example-django-keycloak
-A SSO sample using Django and Keycloak
+A Single sign-on (SSO) example using Django and Keycloak
+
+## Requirement
+
+Python3, pipenv and docker.
+I cheked by the following versions.
+
+- Python 3.10.5
+- pipenv, version 2022.6.7
+- Docker version 20.10.16, build aa7e414
+
+## Overview
+
+- Demonstrates SSO between 2 Django web apps by using Keycloak as OpenID provider(OP).
+- I used [Authlib](https://github.com/lepture/authlib) to write Relying Party(RP).
+- This tool uses the following local ports.
+
+| Name | Role | Port |
+| ---- | ---- | ---- |
+| Keycloak | OP | 8080 |
+| app1 | RP | 8001 |
+| app2 | RP | 8002 |
 
 ## Setup
 
@@ -87,4 +108,4 @@ python manage.py runserver 8002
 - Username: myuser
 - Password: myuser
 
-2. Access to http://localhost:8002/app2 and see being able to view the page without authentication
+2. Access to http://localhost:8002/app2 and **see being able to view the page without authentication**
